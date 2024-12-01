@@ -1,9 +1,6 @@
 $(function() {
     
     $(document).on("click", "#btnlogin", function() {
-        // 
-        // alert($("#txtroll").val()); 
-        // alert($("#txtpassword").val()); 
         var un =$("#txtroll").val();
         var pwd =$("#txtpassword").val();
 
@@ -11,7 +8,6 @@ $(function() {
         var pas=pwd.length;
 
         if(ln!=0 && pas!=0){
-            //ajax call
             $.ajax({
                 url : "../AjaxHandanler/sloginajax.php",
                 type: "POST",
@@ -21,10 +17,6 @@ $(function() {
                     alert("Before sending to ajax");
                 },
                 success: function(x){
-                    // alert(x.yourusername);
-                    // alert("successful");
-
-
                     if(x.status== "OK")
                     {
                         $("#Alert").text("Vaild Details");
@@ -45,9 +37,6 @@ $(function() {
         else{
             alert("Invalid Details");
         }
-
-
-
 
     });
 });

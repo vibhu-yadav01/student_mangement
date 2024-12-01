@@ -1,5 +1,5 @@
 <?php
-$rootpath = $_SERVER["DOCUMENT_ROOT"]; // Always points to C:/xampp/htdocs/
+$rootpath = $_SERVER["DOCUMENT_ROOT"]; 
 require_once $rootpath . "/PROJECT/student_mangement/DBHandler/Databaseconnection.php";
 
 

@@ -1,7 +1,7 @@
 <?php
-$rootpath = $_SERVER["DOCUMENT_ROOT"]; // This points to 
+$rootpath = $_SERVER["DOCUMENT_ROOT"]; 
 
-require_once $rootpath . "/PROJECT/student_mangement/DBHandler/DBStudentDetails.php"; // Adjust the path
+require_once $rootpath . "/PROJECT/student_mangement/DBHandler/DBStudentDetails.php"; 
 $dbo = new DBStudentDetails();
 $action = $_POST["action"];
 
@@ -31,9 +31,6 @@ if ($action == "loginHandler")
 
    echo json_encode($rv); // Send JSON response
    exit;
-}
-if ($action == "otherHandler"){
-
 }
 
 ?>
