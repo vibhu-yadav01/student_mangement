@@ -18,8 +18,9 @@
    <div class="row full-height justify-content-center">
     <div class="col-12 text-center align-self-center py-5">
      <div class="section pb-5 pt-5 pt-sm-2 text-center">
+
      <div style="width:100%; display:flex; justify-content:center; align-items:center;">
-    <label id="Alert" style="color: blue; font-weight: bold; text-decoration:underline"></label>
+    <label id="Alert" style="color: red; font-weight: bold; text-decoration:underline; font-size: 28px;"></label>
 </div>
 
       <h6 class="mb-0 pb-3"><span>Student</span><span>Professor</span></h6>

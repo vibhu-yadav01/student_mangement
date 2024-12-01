@@ -17,9 +17,13 @@ if ($action == "loginHandler")
     if($id==-1)
     {
         $status="ERROR";
+        session_start();
+        session_destroy();
     }
     else
     {
+        session_start();
+        $_SESSION["studentid"] = $id;
         $status= "OK";
     }
 

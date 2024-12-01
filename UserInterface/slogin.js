@@ -27,11 +27,12 @@ $(function() {
 
                     if(x.status== "OK")
                     {
-                        $("#Alert").text("VALID DETAILS");
+                        $("#Alert").text("Vaild Details");
+                        document.location.replace("/PROJECT/student_mangement/UserInterface/studenthome.php");
                     }
                  else
                  {
-                    $("#Alert").text("INVALID DETAILS");
+                    $("#Alert").text("Invalid Details");
 
                  }
                 },
