@@ -55,15 +55,15 @@
           <div class="section text-center">
            <h4 class="mb-3 pb-3">Log In</h4>
            <div class="form-group">
-            <input type="email"  placeholder="Email" autocomplete="off" class="form-style" required>
+            <input type="email" id="txtemail" placeholder="Email" autocomplete="off" class="form-style" required>
             <i class="input-icon uil uil-at"></i>
            </div> 
            <div class="form-group mt-2">
-            <input type="password" placeholder="Password" autocomplete="off" class="form-style" required>
+            <input type="password" id="txtpass" placeholder="Password" autocomplete="off" class="form-style" required>
             <i class="input-icon uil uil-lock-alt"></i>
            </div>
            <div class="form-group mt-2"></div>
-           <button class="submitBtn"> log in</button>
+           <button class="submitBtn" id="btnloginp">Log in</button>
            <!--WORK NOT COMPLETED IN THIS PART-->
            <a href=".." class="link">Don't have an account?Register one</a>
                </div>
@@ -79,6 +79,5 @@
  </div>
 <script src= "../Jquery/jquery.js"></script>
 <script src= "../UserInterface/slogin.js"></script>
- 
-</body>
+<script src= "../UserInterface/plogin.js"></script>
 </html>
