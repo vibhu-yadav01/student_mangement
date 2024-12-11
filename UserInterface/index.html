@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management System</title>
+    <style>
+        /* Reset some default browser styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-image: url('../picture/pic.png'); /* Set the image as background */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: white;
+        }
+
+        /* Container for centering content */
+        .container {
+            text-align: center;
+            background-color: rgba(174, 160, 172, 0.9); /* Slight transparent background */
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 50px;
+            width: 80%;
+            max-width: 600px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        /* Hover effect for container */
+        .container:hover {
+            transform: scale(1.05);
+        }
+
+        /* Heading styling */
+        h1 {
+            color: #333;
+            font-size: 2.8rem;
+            margin-bottom: 30px;
+            letter-spacing: 2px;
+        }
+
+        /* Button styling */
+        .btn {
+            background-color: #0c0c0c;
+            color: white;
+            padding: 20px 40px;
+            font-size: 1.4rem;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Button hover effect */
+        .btn:hover {
+            background-color: #a9a7a9;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Button active effect */
+        .btn:active {
+            transform: translateY(2px);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <h1>Student Management System</h1>
+            <a href="slogin.php">
+                <button class="btn">Click to Enter</button>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

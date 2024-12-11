@@ -14,12 +14,11 @@ $(function() {
                 dataType: "json",
                 data: {username: un, pwd:pwd, action:"loginHandler"},
                 beforeSend: function(){
-                    alert("Before sending to ajax");
+                    // alert("Before sending to ajax");
                 },
                 success: function(x){
                     if(x.status== "OK")
                     {
-                        $("#Alert").text("Vaild Details");
                         document.location.replace("/PROJECT/student_mangement/UserInterface/studenthome.php");
                     }
                  else

@@ -1,8 +1,10 @@
 <?php
-$rootpath = $_SERVER["DOCUMENT_ROOT"]; // This points to 
+try {
+    $conn = new PDO("mysql:host=localhost:3307;dbname=ourdatabase;charset=utf8mb4", "vaibhav", "#qwerty#001#");
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    echo "Connected successfully";
+    $conn->query('SELECT 1');
+} catch (PDOException $e) {
+    echo "Connection failed: " . $e->getMessage();
+}
 
-require_once $rootpath . "/PROJECT/student_mangement/DBHandler/DBStudentDetails.php"; // Adjust the path
-$dbo = new DBStudentDetails();
-$rv = $dbo->getID("110", "abc123");
-echo ($rv)
-?>

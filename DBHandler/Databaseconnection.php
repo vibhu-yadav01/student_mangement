@@ -11,7 +11,7 @@ public function __construct(){
         $this-> conn = new PDO("mysql:host=$this->servername;dbname=$this->databaseName", $this->username, $this->password);
         // Set the PDO error mode to exception
         $this->conn-> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        //echo "Connected successfully";
+        // echo "Connected successfully";
     } catch (PDOException $e) {
         echo "Connection failed: " . $e->getMessage();
     }

@@ -45,8 +45,6 @@
            <div class="form-group mt-2"></div>
           
            <button class="submitBtn" id="btnlogin">log in</button>
-           <!--WORK NOT COMPLETED IN THIS PART-->
-           <a href=".." class="link">Don't have an account?Register one</a>
                </div>
               </div>
              </div>
@@ -64,8 +62,6 @@
            </div>
            <div class="form-group mt-2"></div>
            <button class="submitBtn" id="btnloginp">Log in</button>
-           <!--WORK NOT COMPLETED IN THIS PART-->
-           <a href=".." class="link">Don't have an account?Register one</a>
                </div>
               </div>
              </div>
