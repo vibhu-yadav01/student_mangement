@@ -52,14 +52,15 @@ CREATE TABLE semester_4 (
     Total_Marks INT NOT NULL,
     FOREIGN KEY (Rollno) REFERENCES student_detail_info(Rollno) ON DELETE CASCADE ON UPDATE CASCADE
 );
-CREATE VIEW student_master AS
+CREATE OR REPLACE VIEW student_master AS
 SELECT 
     s.Rollno,
     s.Full_Name,
-    s.Mother's_Name,
-    s.Father's_Name,
+    s.Mother_Name,
+    s.Father_Name,
     s.Mobile_Number,
     s.Home_Address,
+    s.Password, 
     sm1.Engineering_Physics,
     sm1.Engineering_Mathematics_I,
     sm1.Fundamentals_of_Electrical_Engineering,
@@ -92,4 +93,4 @@ FROM student_detail_info s
 LEFT JOIN semester_1 sm1 ON s.Rollno = sm1.Rollno
 LEFT JOIN semester_2 sm2 ON s.Rollno = sm2.Rollno
 LEFT JOIN semester_3 sm3 ON s.Rollno = sm3.Rollno
-LEFT JOIN semester_4 sm4 ON s.Rollno = sm4.Rollno;
+LEFT JOIN semester_4 sm4 ON s.Rollno = sm4.Rollno

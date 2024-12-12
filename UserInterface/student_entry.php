@@ -8,6 +8,13 @@ if (isset($_SESSION["professorid"])) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>
+    function confirmLogout() {
+        if (confirm("Are you sure you want to log out?")) {
+            window.location.href = "../UserInterface/logout.php";
+        }
+    }
+    </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Student Entry</title>
   <link rel="stylesheet" href="../CSS/bootstrap/ppage.css">
@@ -19,9 +26,10 @@ if (isset($_SESSION["professorid"])) {
       <ul>
         <li><a href="professor.php">User Info</a></li>
         <li><a href="#" class="active">Student Entry</a></li>
+        <li><a href="student_list.php">Student list</a></li>
+        <li><a href="student_update.php">Marks Updation</a></li>
         <li><a href="schedule.php">Schedule</a></li>
-        <li><a href="#">Notifications</a></li>
-        <li><a href="#" class="logout">Log out</a></li>
+        <li><a href="#" class="logout" onclick="confirmLogout()">Log out</a></li>
       </ul>
     </aside>
 
