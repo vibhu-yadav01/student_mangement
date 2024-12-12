@@ -62,12 +62,12 @@ if (isset($_SESSION["professorid"])) {
               <input type="number" id="env-1" name="semester1[environment_and_ecology]" max="100" required>
             </div>
             <div class="form-group">
-              <label for="env-1">Workshop:</label>
-              <input type="number" id="env-1" name="semester1[environment_and_ecology]" max="100" required>
+              <label for="Workshop">Workshop:</label>
+              <input type="number" id="Workshop" name="semester1[Workshop]" max="100" required>
             </div>
             <div class="form-group">
               <label for="total-1">Total Marks:</label>
-              <input type="number" id="total-1" name="semester1[total_marks]" max="1000" required>
+              <input type="number" id="total-1" name="semester1[total_marks]" max="900" required>
             </div>
           </div>
         </div>

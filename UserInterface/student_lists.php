@@ -1,10 +1,6 @@
 <?php
 session_start();
-if (isset($_GET['status']) && $_GET['status'] === 'completed') {
-    echo "<script>alert('COMPLETED');</script>";
-}
-
-if (isset($_SESSION["professorid"])) {
+if (isset($_SESSION["studentid"])) {
     $rootpath = $_SERVER["DOCUMENT_ROOT"];
     require_once $rootpath . "/PROJECT/student_mangement/DBHandler/DBStudentDetails.php";
 
@@ -67,7 +63,7 @@ if (isset($_SESSION["professorid"])) {
             border: 1px solid #ddd;
         }
         th {
-            background-color:rgb(1, 1, 1);
+            background-color:rgb(57, 57, 249);
             font-weight: bold;
         }
         tbody tr:nth-child(even) {
@@ -115,14 +111,14 @@ if (isset($_SESSION["professorid"])) {
 </head>
 <body>
     <div class="container">
-        <aside class="sidebar">
-            <h2>Student List</h2>
+    <aside class="sidebar">
+            <h2>Student Profile</h2>
             <ul>
-                <li><a href="professor.php">User Info</a></li>
-                <li><a href="student_entry.php" >Student Entry</a></li>
-                <li><a href="student_list.php">Student List</a></li>
-                <li><a href="student_update.php">Marks Updation</a></li>
-                <li><a href="schedule.php">Schedule</a></li>
+                <li><a href="studenthome.php">User Info</a></li>
+                <li><a href="student_lists.php">Student list</a></li>
+                <li><a href="smarks.php">Marks</a></li>
+                <li><a href="#">Progress</a></li>
+                <li><a href="#">Weekly Schedule</a></li>
                 <li><a href="#" class="logout" onclick="confirmLogout()">Log out</a></li>
             </ul>
         </aside>

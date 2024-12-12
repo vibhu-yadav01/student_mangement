@@ -11,8 +11,7 @@ if (isset($_SESSION['student_rollno'])) {
 // Retrieve POST data for semester 1 marks
 $semester1 = $_POST['semester1'];
 
-// Check if 'Workshop' is empty and set a default value if needed
-$workshop_marks = isset($semester1['workshop']) && !empty($semester1['workshop']) ? $semester1['workshop'] : 0; // Default to 0 if empty
+
 
 // Database connection
 $conn = new mysqli('localhost:3307', 'vaibhav', '#qwerty#001#', 'ourdatabase');
@@ -40,7 +39,7 @@ if ($conn->connect_error) {
         $semester1['fundamentals_of_electrical_engineering'], 
         $semester1['programming_for_problem_solving'], 
         $semester1['environment_and_ecology'], 
-        $workshop_marks,  // Using the validated value
+        $semester1['Workshop'], 
         $semester1['total_marks']
     );
 

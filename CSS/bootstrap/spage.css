@@ -1,0 +1,97 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #2c3e50;
+    color: white;
+    padding: 20px;
+}
+
+.sidebar h2 {
+    margin-bottom: 20px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 15px;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.sidebar ul li a:hover,
+.sidebar ul li a.active {
+    background-color: #34495e;
+}
+
+.logout {
+    color: #e74c3c;
+}
+
+.main-content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #fff;
+}
+
+.student-info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.student-info h2 {
+    font-size: 24px;
+    color: #2c3e50;
+}
+
+.student-info .info-box {
+    display: flex;
+    justify-content: space-between;
+    background-color: #ecf0f1;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.student-info .info-box div {
+    width: 45%;
+}
+
+.student-info .info-box div h4 {
+    font-size: 18px;
+    color: #34495e;
+}
+
+.student-info .info-box div p {
+    font-size: 16px;
+    color: #7f8c8d;
+}
+
+h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
