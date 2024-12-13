@@ -160,13 +160,13 @@ if ($semester && $subject) {
 <body>
 <div class="container">
     <aside class="sidebar">
-        <h2>Student Profile</h2>
+        <h2>Student Marks</h2>
         <ul>
-            <li><a href="#">User Info</a></li>
+            <li><a href="studenthome.php">User Info</a></li>
             <li><a href="student_lists.php">Student list</a></li>
             <li><a href="smarks.php">Marks</a></li>
-            <li><a href="#">Progress</a></li>
-            <li><a href="#">Weekly Schedule</a></li>
+            <li><a href="progress.php">Progress</a></li>
+            <li><a href="schedule2.php">Weekly Schedule</a></li>
             <li><a href="#" class="logout" onclick="confirmLogout()">Log out</a></li>
         </ul>
     </aside>

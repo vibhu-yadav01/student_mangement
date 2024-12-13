@@ -233,6 +233,35 @@ private function getMarksColumn($semester, $subject)
     }
 }
 
+public function getMarksByStudentId($studentId)
+{
+    $dbo = new Databaseconnection();
+    $cmd = "
+        SELECT 
+            Rollno,
+            Full_Name,
+            Mobile_Number,
+            Semester_1_Total,
+            Semester_2_Total,
+            Semester_3_Total,
+            Semester_4_Total,
+            (IFNULL(Semester_1_Total, 0) + 
+             IFNULL(Semester_2_Total, 0) + 
+             IFNULL(Semester_3_Total, 0) + 
+             IFNULL(Semester_4_Total, 0)) AS Total
+        FROM student_master
+        WHERE Rollno = :studentId
+    ";
+    $templet = $dbo->conn->prepare($cmd);
+    $templet->execute([":studentId" => $studentId]);
+
+    if ($templet->rowCount() > 0) {
+        return $templet->fetch(PDO::FETCH_ASSOC);
+    } else {
+        return null; // No student found with this ID
+    }
+}
+
 
 }
 
