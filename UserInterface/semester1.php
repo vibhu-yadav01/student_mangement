@@ -14,7 +14,7 @@ $semester1 = $_POST['semester1'];
 
 
 // Database connection
-$conn = new mysqli('localhost:3307', 'vaibhav', '#qwerty#001#', 'ourdatabase');
+$conn = new mysqli('localhost', 'vaibhav', '#qwerty#001#', 'ourdatabase');
 if ($conn->connect_error) {
     die('Connection Failed: ' . $conn->connect_error);
 } else {

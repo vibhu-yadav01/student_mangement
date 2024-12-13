@@ -10,7 +10,7 @@ if (isset($_SESSION["studentid"])) {
     // Fetch student details from the database
     $dbo = new Databaseconnection();
     $cmd = "
-        SELECT Rollno, Full_Name, Mother_Name, Father_Name, Mobile_Number, Home_Address
+        SELECT Rollno, Full_Name, Mothers_Name, Fathers_Name, Mobile_Number, Home_Address
         FROM student_master
         WHERE Rollno = :rollno
     ";
@@ -186,11 +186,11 @@ if (isset($_SESSION["studentid"])) {
                 <div class="info-box">
                     <div>
                         <h4>Mother's Name</h4>
-                        <p><?php echo htmlspecialchars($studentDetails['Mother_Name']); ?></p>
+                        <p><?php echo htmlspecialchars($studentDetails['Mothers_Name']); ?></p>
                     </div>
                     <div>
                         <h4>Father's Name</h4>
-                        <p><?php echo htmlspecialchars($studentDetails['Father_Name']); ?></p>
+                        <p><?php echo htmlspecialchars($studentDetails['Fathers_Name']); ?></p>
                     </div>
                 </div>
 

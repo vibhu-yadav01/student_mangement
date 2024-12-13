@@ -18,7 +18,7 @@ $cyber_security_marks = isset($semester3['Cyber_Security']) && !empty($semester3
 $Data_Structure = isset($semester3['Data_Structure']) && !empty($semester3['Data_Structure']) ? $semester3['Data_Structure'] : 0; // Default to 0 if empty
 
 // Database connection
-$conn = new mysqli('localhost:3307', 'vaibhav', '#qwerty#001#', 'ourdatabase');
+$conn = new mysqli('localhost', 'vaibhav', '#qwerty#001#', 'ourdatabase');
 if ($conn->connect_error) {
     die('Connection Failed: ' . $conn->connect_error);
 } else {

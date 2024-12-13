@@ -17,6 +17,13 @@ if (isset($_SESSION["studentid"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Marks</title>
     <link rel="stylesheet" href="../CSS/bootstrap/ppage.css">
+    <script>
+    function confirmLogout() {
+        if (confirm("Are you sure you want to log out?")) {
+            window.location.href = "../UserInterface/logout.php";
+        }
+    }
+    </script>
     <style>
         table {
             width: 100%;

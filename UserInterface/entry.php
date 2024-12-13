@@ -10,12 +10,12 @@ $password = $_POST['password'];
 $date = $_POST['date'];
 
 // Database connection
-$conn = new mysqli('localhost:3307', 'vaibhav', '#qwerty#001#', 'ourdatabase');
+$conn = new mysqli('localhost', 'vaibhav', '#qwerty#001#', 'ourdatabase');
 if ($conn->connect_error) {
    die('Connection Failed: ' . $conn->connect_error);
 } else {
    // Prepare and bind query for student details
-   $stmt = $conn->prepare("INSERT INTO student_detail_info (Rollno, Full_Name, Mother_Name, Father_Name, Mobile_Number, Home_Address, Password, DOB) 
+   $stmt = $conn->prepare("INSERT INTO student_detail_info (Rollno, Full_Name, Mothers_Name, Fathers_Name, Mobile_Number, Home_Address, Password, DOB) 
                            VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
    $stmt->bind_param("isssssss", $student_rollno, $student_name, $mother_name, $father_name, $mobile, $address, $password, $date);
    $stmt->execute(); 

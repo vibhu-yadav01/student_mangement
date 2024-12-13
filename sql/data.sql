@@ -32,24 +32,24 @@ CREATE TABLE semester_2 (
 );
 CREATE TABLE semester_3 (
     Rollno INT,
-    Mathematics_IV INT NOT NULL,
-    Technical_Communication INT NOT NULL,
-    Data_Structure INT NOT NULL,
-    Computer_Organization_and_Architecture INT NOT NULL,
-    Discrete_Structures_and_Theory_of_Logic INT NOT NULL,
-    Cyber_Security INT NOT NULL,
-    Total_Marks INT NOT NULL,
+    Mathematics_IV INT,
+    Technical_Communication INT,
+    Data_Structure INT,
+    Computer_Organization_and_Architecture INT,
+    Discrete_Structures_and_Theory_of_Logic INT,
+    Cyber_Security INT,
+    Total_Marks INT,
     FOREIGN KEY (Rollno) REFERENCES student_detail_info(Rollno) ON DELETE CASCADE ON UPDATE CASCADE
 );
 CREATE TABLE semester_4 (
     Rollno INT,
-    Digital_Electronics INT NOT NULL,
-    Universal_Human_Values_and_Professional_Ethics INT NOT NULL,
-    Operating_System INT NOT NULL,
-    Theory_of_Automata_and_Formal_Languages INT NOT NULL,
-    Object_Oriented_Programming_with_Java INT NOT NULL,
-    Python_Programming INT NOT NULL,
-    Total_Marks INT NOT NULL,
+    Digital_Electronics INT,
+    Universal_Human_Values_and_Professional_Ethics INT,
+    Operating_System INT,
+    Theory_of_Automata_and_Formal_Languages INT,
+    Object_Oriented_Programming_with_Java INT,
+    Python_Programming INT,
+    Total_Marks INT,
     FOREIGN KEY (Rollno) REFERENCES student_detail_info(Rollno) ON DELETE CASCADE ON UPDATE CASCADE
 );
 CREATE OR REPLACE VIEW student_master AS
@@ -60,7 +60,8 @@ SELECT
     s.Father_Name,
     s.Mobile_Number,
     s.Home_Address,
-    s.Password, 
+    s.Password,
+    s.DOB, 
     sm1.Engineering_Physics,
     sm1.Engineering_Mathematics_I,
     sm1.Fundamentals_of_Electrical_Engineering,

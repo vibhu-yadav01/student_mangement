@@ -1,7 +1,7 @@
 <?php
 
 class Databaseconnection{
-private $servername = "localhost:3307"; // Specify the port
+private $servername = "localhost"; // Specify the port
  private $username = "vaibhav";
 private $password = "#qwerty#001#"; // Replace with your MySQL root password if any
 private $databaseName = "ourdatabase";
