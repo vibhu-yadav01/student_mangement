@@ -1,4 +1,6 @@
 <?php
+session_start();
+if (isset($_SESSION["studentid"])) {
 require_once $_SERVER["DOCUMENT_ROOT"] . "/PROJECT/student_mangement/DBHandler/Databaseconnection.php";
 require_once $_SERVER["DOCUMENT_ROOT"] . "/PROJECT/student_mangement/DBHandler/DBStudentDetails.php";
 
@@ -30,6 +32,18 @@ if ($semester && $subject) {
     } catch (PDOException $e) {
         echo "Query failed: " . $e->getMessage();
     }
+    // Determine subject performance based on marks
+$performanceMessage = '';
+if ($marksData['marks_obtained'] !== null) {
+    if ($marksData['marks_obtained'] < 40) {
+        $performanceMessage = "You need to work on this subject. It's currently weak.";
+    } elseif ($marksData['marks_obtained'] > 90) {
+        $performanceMessage = "Great job! You are well-prepared in this subject.";
+    } else {
+        $performanceMessage = "Keep it up! Your performance is satisfactory.";
+    }
+}
+
 }
 ?>
 
@@ -37,7 +51,7 @@ if ($semester && $subject) {
 <html lang="en">
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student List</title>
+    <title>Student </title>
     <link rel="stylesheet" href="../CSS/bootstrap/ppage.css">
     <script>
         function confirmLogout() {
@@ -96,10 +110,9 @@ if ($semester && $subject) {
             }
         }
     </script>
-
-    <title>Student Profile</title>
-   <style>
-   table {
+    <script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
+    <style>
+        table {
             width: 100%;
             border-collapse: collapse;
             margin: 20px 0;
@@ -111,7 +124,7 @@ if ($semester && $subject) {
             border: 1px solid #ddd;
         }
         th {
-            background-color:rgb(57, 57, 249);
+            background-color:rgb(100, 122, 232);
             font-weight: bold;
         }
         tbody tr:nth-child(even) {
@@ -131,7 +144,7 @@ if ($semester && $subject) {
             border-radius: 8px;
         }
         .controls-container input[type="text"]:focus {
-            border-color: #007bff;
+            border-color:rgb(99, 168, 243);
             outline: none;
         }
         .controls-container button {
@@ -154,6 +167,14 @@ if ($semester && $subject) {
         .controls-container select:focus {
             border-color: #007bff;
             outline: none;
+        }
+        main {
+            margin-left: 22%;
+            padding: 10px;
+        }
+        #chartContainer {
+            height: 370px; 
+            width: 100%;
         }
     </style>
 </head>
@@ -192,24 +213,62 @@ if ($semester && $subject) {
         </form>
 
         <?php if ($marksData['marks_obtained'] !== null) : ?>
-            <h2>Marks Details for <?= htmlspecialchars($subject) ?> (<?= htmlspecialchars($semester) ?>)</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Marks Obtained</th>
-                        <th>Average Marks</th>
-                        <th>Highest Marks</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><?= htmlspecialchars($marksData['marks_obtained'] ?? 'N/A') ?></td>
-                        <td><?= htmlspecialchars($marksData['average_marks'] ?? 'N/A') ?></td>
-                        <td><?= htmlspecialchars($marksData['highest_marks'] ?? 'N/A') ?></td>
-                    </tr>
-                </tbody>
-            </table>
-        <?php endif; ?>
+    <h2>Marks Details for <?= htmlspecialchars($subject) ?> (<?= htmlspecialchars($semester) ?>)</h2>
+    <div id="chartContainer"></div>
+    <table>
+        <thead>
+            <tr>
+                <th>Marks Obtained</th>
+                <th>Average Marks</th>
+                <th>Highest Marks</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><?= htmlspecialchars($marksData['marks_obtained'] ?? 'N/A') ?></td>
+                <td><?= htmlspecialchars($marksData['average_marks'] ?? 'N/A') ?></td>
+                <td><?= htmlspecialchars($marksData['highest_marks'] ?? 'N/A') ?></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <?php if ($performanceMessage) : ?>
+        <p style="font-size: 1.2em; color: <?= $marksData['marks_obtained'] < 40 ? 'red' : ($marksData['marks_obtained'] > 90 ? 'green' : 'orange') ?>;">
+            <?= $performanceMessage ?>
+        </p>
+    <?php endif; ?>
+
+    <script>
+        window.onload = function() {
+            var chart = new CanvasJS.Chart("chartContainer", {
+                animationEnabled: true,
+                theme: "light2",
+                title: {
+                    text: "Marks Analysis"
+                },
+                axisY: {
+                    title: "Marks"
+                },
+                data: [{
+                    type: "column",
+                    dataPoints: [
+                        { label: "Marks Obtained", y: <?= $marksData['marks_obtained'] ?> },
+                        { label: "Average Marks", y: <?= $marksData['average_marks'] ?> },
+                        { label: "Highest Marks", y: <?= $marksData['highest_marks'] ?> }
+                    ]
+                }]
+            });
+            chart.render();
+        }
+    </script>
+<?php endif; ?>
+
     </main>
+</div>
 </body>
 </html>
+<?php
+} else {
+    echo "NOT THE VALID STUDENT";
+}
+?>

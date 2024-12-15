@@ -28,6 +28,7 @@ if (isset($_SESSION["professorid"])) {
         <li><a href="#" class="active">Student Entry</a></li>
         <li><a href="student_list.php">Student list</a></li>
         <li><a href="student_update.php">Marks Updation</a></li>
+        <li><a href="remove_student.php">Remove Student</a></li>
         <li><a href="schedule.php">Schedule</a></li>
         <li><a href="#" class="logout" onclick="confirmLogout()">Log out</a></li>
       </ul>
@@ -88,5 +89,5 @@ if (isset($_SESSION["professorid"])) {
 </html>
 <?php
 } else {
-    echo "NOT THE VALID STUDENT";
+  echo "<div style='text-align: center; padding: 50px; color: #e74c3c;'><h2>NOT THE VALID STUDENT</h2></div>";
 }

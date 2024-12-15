@@ -67,7 +67,7 @@ if (isset($_SESSION["professorid"])) {
             border: 1px solid #ddd;
         }
         th {
-            background-color:rgb(1, 1, 1);
+            background-color:rgb(109, 159, 239);
             font-weight: bold;
         }
         tbody tr:nth-child(even) {
@@ -122,6 +122,7 @@ if (isset($_SESSION["professorid"])) {
                 <li><a href="student_entry.php" >Student Entry</a></li>
                 <li><a href="student_list.php">Student List</a></li>
                 <li><a href="student_update.php">Marks Updation</a></li>
+                <li><a href="remove.php">Remove Student</a></li>
                 <li><a href="schedule.php">Schedule</a></li>
                 <li><a href="#" class="logout" onclick="confirmLogout()">Log out</a></li>
             </ul>
@@ -145,13 +146,15 @@ if (isset($_SESSION["professorid"])) {
             <table>
                 <thead>
                     <tr>
+                        <th>Roll Number</th>
                         <th>Name</th>
-                        <th>Phone Number</th>
+                        <Th>Date Of Birth</Th>
                         <th>Semester 1 Total</th>
                         <th>Semester 2 Total</th>
                         <th>Semester 3 Total</th>
                         <th>Semester 4 Total</th>
                         <th>Total</th>
+                        <th>Password</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -159,13 +162,15 @@ if (isset($_SESSION["professorid"])) {
                     if (!empty($students)) {
                         foreach ($students as $row) {
                             echo "<tr>";
+                            echo "<td>" . htmlspecialchars($row['Rollno']) . "</td>";
                             echo "<td>" . htmlspecialchars($row['Full_Name']) . "</td>";
-                            echo "<td>" . htmlspecialchars($row['Mobile_Number']) . "</td>";
+                            echo "<td>" . htmlspecialchars($row['DOB']) . "</td>";
                             echo "<td>" . htmlspecialchars($row['Semester_1_Total']) . "</td>";
                             echo "<td>" . htmlspecialchars($row['Semester_2_Total']) . "</td>";
                             echo "<td>" . htmlspecialchars($row['Semester_3_Total']) . "</td>";
                             echo "<td>" . htmlspecialchars($row['Semester_4_Total']) . "</td>";
                             echo "<td>" . htmlspecialchars($row['Total']) . "</td>";
+                            echo "<td>" . htmlspecialchars($row['Password']) . "</td>";
                             echo "</tr>";
                         }
                     } else {

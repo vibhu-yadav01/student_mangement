@@ -30,6 +30,8 @@ class DBStudentDetails
             SELECT 
                 Rollno,
                 Full_Name,
+                DOB,
+                Password,
                 Mobile_Number,
                 Semester_1_Total,
                 Semester_2_Total,
@@ -56,8 +58,10 @@ class DBStudentDetails
     $dbo = new Databaseconnection();
     $cmd = "
         SELECT 
+            Rollno,
             Full_Name,
-            Mobile_Number,
+            Password,
+            DOB,
             Semester_1_Total,
             Semester_2_Total,
             Semester_3_Total,
@@ -79,8 +83,10 @@ public function getStudentListSortedByRank()
     $dbo = new Databaseconnection();
     $cmd = "
         SELECT 
+            Rollno,
             Full_Name,
-            Mobile_Number,
+            Password,
+            DOB,
             Semester_1_Total,
             Semester_2_Total,
             Semester_3_Total,
@@ -90,7 +96,7 @@ public function getStudentListSortedByRank()
              IFNULL(Semester_3_Total, 0) + 
              IFNULL(Semester_4_Total, 0)) AS Total
         FROM student_master
-        ORDER BY Total DESC
+         ORDER BY Total DESC
     ";
     $templet = $dbo->conn->prepare($cmd);
     $templet->execute();
@@ -101,9 +107,11 @@ public function getStudentListSortedByName()
 {
     $dbo = new Databaseconnection();
     $cmd = "
-        SELECT 
+         SELECT 
+            Rollno,
             Full_Name,
-            Mobile_Number,
+            Password,
+            DOB,
             Semester_1_Total,
             Semester_2_Total,
             Semester_3_Total,
@@ -114,7 +122,7 @@ public function getStudentListSortedByName()
              IFNULL(Semester_4_Total, 0)) AS Total
         FROM student_master
         ORDER BY Full_Name ASC
-    ";
+   ";
     $templet = $dbo->conn->prepare($cmd);
     $templet->execute();
     return $templet->fetchAll(PDO::FETCH_ASSOC);
@@ -124,8 +132,10 @@ public function getStudentListByName($searchTerm)
     $dbo = new Databaseconnection();
     $cmd = "
         SELECT 
+            Rollno,
             Full_Name,
-            Mobile_Number,
+            Password,
+            DOB,
             Semester_1_Total,
             Semester_2_Total,
             Semester_3_Total,
@@ -143,6 +153,7 @@ public function getStudentListByName($searchTerm)
     $templet->execute();
     return $templet->fetchAll(PDO::FETCH_ASSOC);
 }
+
 
 public function updateMarks($rollno, $password, $semester, $subject, $newMarks)
 {

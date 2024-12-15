@@ -63,7 +63,7 @@ if (isset($_SESSION["studentid"])) {
             border: 1px solid #ddd;
         }
         th {
-            background-color:rgb(57, 57, 249);
+            background-color:rgb(57, 74, 188);
             font-weight: bold;
         }
         tbody tr:nth-child(even) {
@@ -140,9 +140,10 @@ if (isset($_SESSION["studentid"])) {
             </div>
             <table>
                 <thead>
-                    <tr>
+                <tr>
+                        <th>Roll Number</th>
                         <th>Name</th>
-                        <th>Phone Number</th>
+                        <Th>Date Of Birth</Th>
                         <th>Semester 1 Total</th>
                         <th>Semester 2 Total</th>
                         <th>Semester 3 Total</th>
@@ -151,12 +152,13 @@ if (isset($_SESSION["studentid"])) {
                     </tr>
                 </thead>
                 <tbody>
-                    <?php
+                <?php
                     if (!empty($students)) {
                         foreach ($students as $row) {
                             echo "<tr>";
+                            echo "<td>" . htmlspecialchars($row['Rollno']) . "</td>";
                             echo "<td>" . htmlspecialchars($row['Full_Name']) . "</td>";
-                            echo "<td>" . htmlspecialchars($row['Mobile_Number']) . "</td>";
+                            echo "<td>" . htmlspecialchars($row['DOB']) . "</td>";
                             echo "<td>" . htmlspecialchars($row['Semester_1_Total']) . "</td>";
                             echo "<td>" . htmlspecialchars($row['Semester_2_Total']) . "</td>";
                             echo "<td>" . htmlspecialchars($row['Semester_3_Total']) . "</td>";

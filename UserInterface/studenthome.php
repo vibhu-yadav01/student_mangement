@@ -23,7 +23,7 @@ if (isset($_SESSION["studentid"])) {
         exit;
     }
 } else {
-    echo "NOT THE VALID STUDENT";
+    echo "<div style='text-align: center; padding: 50px; color: #e74c3c;'><h2>NOT THE VALID STUDENT</h2></div>";
     exit;
 }
 ?>
