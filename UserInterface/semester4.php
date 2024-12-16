@@ -14,8 +14,6 @@ if (isset($_SESSION['student_rollno'])) {
 // Retrieve POST data for semester 4 marks
 $semester4 = $_POST['semester4'];
 
-$Theory_of_Automata_and_Formal_Languages = isset($semester3['Theory_of_Automata_and_Formal_Languages']) && !empty($semester3['Theory_of_Automata_and_Formal_Languages']) ? $semester3['Theory_of_Automata_and_Formal_Languages'] : 0; // Default to 0 if empty
-$Python_Programming = isset($semester3['Python_Programming']) && !empty($semester3['Python_Programming']) ? $semester3['Python_Programming'] : 0; // Default to 0 if empty
 
 
 // Database connection
@@ -41,10 +39,10 @@ if ($conn->connect_error) {
         $rollno, 
         $semester4['Digital_Electronics'], 
         $semester4['Universal_Human_Values_and_Professional_Ethics'], 
-        $semester4['Operating_System'], 
-        $Theory_of_Automata_and_Formal_Languages, 
-        $semester4['Object_Oriented_Programming_with_Java'], 
-        $Python_Programming, 
+        $semester4['Operating_System'],
+        $semester4['Theory_of_Automata_and_Formal_Languages'],
+        $semester4['Object_Oriented_Programming_with_Java'],
+        $semester4['Python_Programming'],
         $semester4['total_marks']
     );
 

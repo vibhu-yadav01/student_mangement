@@ -51,7 +51,7 @@ if (isset($_SESSION["professorid"])) {
             </div>
             <div class="form-group">
               <label for="Data_Structure-3">Data Structure:</label>
-              <input type="number" id="Data_Structure-3" name="semester3[Data Structure]" max="100" required>
+              <input type="number" id="Data_Structure-3" name="semester3[Data_Structure]" max="100" required>
             </div>
             <div class="form-group">
               <label for="COA-3">Computer Organization and Architecture:</label>

@@ -13,19 +13,26 @@ $marksData = ['marks_obtained' => null, 'average_marks' => null, 'highest_marks'
 // Retrieve selected semester and subject
 $semester = $_POST['semester'] ?? null;
 $subject = $_POST['subject'] ?? null;
-
 if ($semester && $subject) {
     try {
-        // Build the dynamic query to fetch data from the specific subject column
-        $query = "SELECT 
-                    $subject AS marks_obtained, 
-                    AVG($subject) AS average_marks, 
-                    MAX($subject) AS highest_marks 
-                  FROM student_master
-                  WHERE $subject IS NOT NULL";
+        // Query to fetch marks for the specific student and calculate averages and highest marks globally
+        $query = "
+            SELECT 
+                (SELECT $subject FROM student_master WHERE Rollno = :studentid) AS marks_obtained,
+                AVG($subject) AS average_marks,
+                MAX($subject) AS highest_marks
+            FROM student_master
+            WHERE $subject IS NOT NULL
+        ";
 
-        $stmt = $conn->query($query);
+        // Prepare the statement
+        $stmt = $conn->prepare($query);
+        $stmt->bindValue(':studentid', $_SESSION['studentid'], PDO::PARAM_INT); // Bind the logged-in student's ID
 
+        // Execute the query
+        $stmt->execute();
+
+        // Fetch the results
         if ($stmt) {
             $marksData = $stmt->fetch(PDO::FETCH_ASSOC);
         }

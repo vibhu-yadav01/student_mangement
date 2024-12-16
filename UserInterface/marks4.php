@@ -54,7 +54,7 @@ if (isset($_SESSION["professorid"])) {
             </div>
             <div class="form-group">
               <label for="TOC-4">Theory of Automata and Formal Languages:</label>
-              <input type="number" id="TOC-4" name="semester4[Theory_of Automata_and_Formal_Languages]" max="100" required>
+              <input type="number" id="TOC-4" name="semester4[Theory_of_Automata_and_Formal_Languages]" max="100" required>
             </div>
             <div class="form-group">
               <label for="OOPS-4">Object Oriented Programming with Java:</label>
@@ -62,7 +62,7 @@ if (isset($_SESSION["professorid"])) {
             </div>
             <div class="form-group">
               <label for="Python-4">Python Programming:</label>
-              <input type="number" id="Python-4" name="semester4[Python Programming]" max="100" required>
+              <input type="number" id="Python-4" name="semester4[Python_Programming]" max="100" required>
             </div>
             <div class="form-group">
               <label for="total-4">Total Marks:</label>

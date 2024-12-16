@@ -63,7 +63,7 @@ if (isset($_SESSION["professorid"])) {
             </div>
             <div class="form-group">
               <label for="S_Y-2">Sports and Yoga:</label>
-              <input type="number" id="env-1" name="semester2[Sports and Yoga]" max="100" required>
+              <input type="number" id="env-1" name="semester2[Sports_and_Yoga]" max="100" required>
             </div>
             <div class="form-group">
               <label for="total-2">Total Marks:</label>
