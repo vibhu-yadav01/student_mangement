@@ -7,6 +7,7 @@ if (isset($_GET['status']) && $_GET['status'] === 'completed') {
 if (isset($_SESSION["professorid"])) {
     $rootpath = $_SERVER["DOCUMENT_ROOT"];
     require_once $rootpath . "/PROJECT/student_mangement/DBHandler/DBStudentDetails.php";
+    require_once $rootpath . "/PROJECT/student_mangement/DBHandler/DBProfessorDetails.php";
 
     $studentDetails = new DBStudentDetails();
 
@@ -32,7 +33,24 @@ if (isset($_SESSION["professorid"])) {
                 $students = $studentDetails->getStudentListSortedByName();
                 break;
         }
+        if (isset($_GET['delete'])) {
+            $rollnoToDelete = $_GET['delete'];
+        
+            // Attempt to delete the student
+            $isDeleted = $studentDetails->deleteStudentByRollno($rollnoToDelete);
+        
+            if ($isDeleted) {
+                echo "<script>alert('Student with Roll Number $rollnoToDelete deleted successfully.');</script>";
+            } else {
+                echo "<script>alert('Failed to delete student. Please try again.');</script>";
+            }
+        
+            // Refresh the page to reflect changes
+            echo "<script>window.location.href = 'student_list.php';</script>";
+        }
+        
     }
+    
 ?>
 
 <!DOCTYPE html>
@@ -53,6 +71,14 @@ if (isset($_SESSION["professorid"])) {
             const search = document.getElementById("searchInput").value;
             window.location.href = "?sort=" + sort + "&search=" + encodeURIComponent(search);
         }
+        
+    function confirmDelete(rollno) {
+        if (confirm("Are you sure you want to delete the student with Roll Number " + rollno + "?")) {
+            window.location.href = "?delete=" + encodeURIComponent(rollno);
+        }
+    }
+</script>
+
     </script>
     <style>
         table {
@@ -111,6 +137,16 @@ if (isset($_SESSION["professorid"])) {
             border-color: #007bff;
             outline: none;
         }
+        button {
+        padding: 5px 10px;
+        background-color: #dc3545; /* Bootstrap danger color */
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #c82333;
     </style>
 </head>
 <body>
@@ -122,7 +158,6 @@ if (isset($_SESSION["professorid"])) {
                 <li><a href="student_entry.php" >Student Entry</a></li>
                 <li><a href="student_list.php">Student List</a></li>
                 <li><a href="student_update.php">Marks Updation</a></li>
-                <li><a href="remove.php">Remove Student</a></li>
                 <li><a href="schedule.php">Schedule</a></li>
                 <li><a href="#" class="logout" onclick="confirmLogout()">Log out</a></li>
             </ul>
@@ -155,6 +190,7 @@ if (isset($_SESSION["professorid"])) {
                         <th>Semester 4 Total</th>
                         <th>Total</th>
                         <th>Password</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -171,10 +207,13 @@ if (isset($_SESSION["professorid"])) {
                             echo "<td>" . htmlspecialchars($row['Semester_4_Total']) . "</td>";
                             echo "<td>" . htmlspecialchars($row['Total']) . "</td>";
                             echo "<td>" . htmlspecialchars($row['Password']) . "</td>";
+                            echo "<td>";
+                            echo "<button onclick=\"confirmDelete('" . htmlspecialchars($row['Rollno']) . "')\">Delete</button>";
+                            echo "</td>";
                             echo "</tr>";
                         }
                     } else {
-                        echo "<tr><td colspan='7'>No students found</td></tr>";
+                        echo "<tr><td colspan='10'>No students found</td></tr>";
                     }
                     ?>
                 </tbody>

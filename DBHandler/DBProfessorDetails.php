@@ -31,6 +31,13 @@ class DBProfessorDetails {
         }
         return $details;
     }
+ 
+    public function deleteStudentByRollno($rollno) {
+        $query = "DELETE FROM students WHERE Rollno = ?";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("s", $rollno);
+        return $stmt->execute();
+    }
     
 }
 ?>

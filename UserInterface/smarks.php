@@ -249,7 +249,7 @@ if ($marksData['marks_obtained'] !== null) {
         window.onload = function() {
             var chart = new CanvasJS.Chart("chartContainer", {
                 animationEnabled: true,
-                theme: "light2",
+                theme: "light",
                 title: {
                     text: "Marks Analysis"
                 },

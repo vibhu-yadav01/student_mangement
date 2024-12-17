@@ -272,6 +272,15 @@ public function getMarksByStudentId($studentId)
         return null; // No student found with this ID
     }
 }
+public function deleteStudentByRollno($rollno) {
+    $dbo = new Databaseconnection(); // Assuming this is your PDO connection class
+    $query = "DELETE FROM student_detail_info WHERE Rollno = :rollno"; // Named placeholder
+
+    $stmt = $dbo->conn->prepare($query); // Prepare the query
+    $stmt->bindValue(':rollno', $rollno, PDO::PARAM_STR); // Bind the parameter
+    
+    return $stmt->execute(); // Execute the query
+}
 
 
 }

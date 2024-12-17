@@ -42,7 +42,6 @@ if (isset($_SESSION["professorid"])) {
                 <li><a href="student_entry.php">Student Entry</a></li>
                 <li><a href="student_list.php">Student list</a></li>
                 <li><a href="student_update.php">Marks Updation</a></li>
-                <li><a href="remove_student.php">Remove Student</a></li>
                 <li><a href="schedule.php">Schedule</a></li>
                 <li><a href="#" class="logout" onclick="confirmLogout()">Log out</a></li>
             </ul>
